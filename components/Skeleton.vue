@@ -1,15 +1,24 @@
 <template>
-  <div class="h-screen flex overflow-hidden bg-gray-100" @keydown.esc="sidebarOpen = false">
+  <div
+    class="h-screen flex overflow-hidden bg-gray-100"
+    @keydown.esc="sidebarOpen = false"
+  >
     <!-- Off-canvas menu for mobile -->
     <div class="md:hidden">
       <div
         @click="sidebarOpen = false"
         class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300"
-        :class="{'opacity-75 pointer-events-auto': sidebarOpen, 'opacity-0 pointer-events-none': !sidebarOpen}"
+        :class="{
+          'opacity-75 pointer-events-auto': sidebarOpen,
+          'opacity-0 pointer-events-none': !sidebarOpen
+        }"
       ></div>
       <div
         class="fixed inset-y-0 left-0 flex flex-col z-40 max-w-xs w-full bg-gray-800 transform ease-in-out duration-300 -translate-x-full"
-        :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
+        :class="{
+          'translate-x-0': sidebarOpen,
+          '-translate-x-full': !sidebarOpen
+        }"
       >
         <div class="absolute top-0 right-0 -mr-14 p-1">
           <button
@@ -17,7 +26,12 @@
             @click="sidebarOpen = false"
             class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600"
           >
-            <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <svg
+              class="h-6 w-6 text-white"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -28,7 +42,11 @@
           </button>
         </div>
         <div class="flex-shrink-0 flex items-center h-16 px-4 bg-gray-900">
-          <img class="h-8 w-auto" src="/img/logos/workflow-logo-on-dark.svg" alt="Workflow" />
+          <img
+            class="h-8 w-auto"
+            src="/img/logos/workflow-logo-on-dark.svg"
+            alt="Workflow"
+          />
         </div>
         <div class="flex-1 h-0 overflow-y-auto">
           <nav class="px-2 py-4">
@@ -155,7 +173,11 @@
     <div class="hidden md:flex md:flex-shrink-0">
       <div class="flex flex-col w-64">
         <div class="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
-          <img class="h-8 w-auto" src="/img/logos/workflow-logo-on-dark.svg" alt="Workflow" />
+          <img
+            class="h-8 w-auto"
+            src="/img/logos/workflow-logo-on-dark.svg"
+            alt="Workflow"
+          />
         </div>
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
           <!-- Sidebar component, swap this element with another sidebar if you like -->
@@ -284,7 +306,12 @@
           @click.stop="sidebarOpen = true"
           class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
         >
-          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <svg
+            class="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -297,8 +324,12 @@
           <div class="flex-1 flex">
             <div class="w-full flex md:ml-0">
               <label for="search_field" class="sr-only">Search</label>
-              <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-                <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+              <div
+                class="relative w-full text-gray-400 focus-within:text-gray-600"
+              >
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
+                >
                   <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
@@ -319,7 +350,12 @@
             <button
               class="p-1 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:shadow-outline focus:text-gray-500"
             >
-              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <svg
+                class="h-6 w-6"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -328,7 +364,7 @@
                 />
               </svg>
             </button>
-            <div v-on-clickaway="userDropdownOpen = false" class="ml-3 relative">
+            <div v-on-clickaway="closeUserDropdown" class="ml-3 relative">
               <div>
                 <button
                   @click="userDropdownOpen = !userDropdownOpen"
@@ -355,15 +391,18 @@
                   <a
                     href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150"
-                  >Your Profile</a>
+                    >Your Profile</a
+                  >
                   <a
                     href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150"
-                  >Settings</a>
+                    >Settings</a
+                  >
                   <a
                     href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150"
-                  >Sign out</a>
+                    >Sign out</a
+                  >
                 </div>
               </div>
             </div>
@@ -383,7 +422,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <!-- Replace with your content -->
           <div class="py-4">
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+            <div
+              class="border-4 border-dashed border-gray-200 rounded-lg h-96"
+            ></div>
           </div>
           <!-- /End replace -->
         </div>
@@ -399,9 +440,13 @@ export default {
       sidebarOpen: false,
       userDropdownOpen: false
     }
+  },
+  methods: {
+    closeUserDropdown() {
+      this.userDropdownOpen = false
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

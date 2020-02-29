@@ -1,9 +1,11 @@
-import { mixin as clickaway } from "vue-clickaway"
+import { directive as onClickaway } from 'vue-clickaway';
 
 import Skeleton from './components/Skeleton.vue'
 
 export default {
-  mixins: [clickaway],
+  directives: {
+    onClickaway: onClickaway,
+  },
   components: {
     Skeleton
   }

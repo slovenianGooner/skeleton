@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/slovenianGooner/skeleton/issues"
   },
-  "homepage": "https://github.com/slovenianGooner/skeleton#readme"
+  "homepage": "https://github.com/slovenianGooner/skeleton#readme",
+  "dependencies": {
+    "vue-clickaway": "^2.2.2"
+  }
 }

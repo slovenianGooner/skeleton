@@ -1,19 +1,24 @@
 <template>
   <div>
-    <div class="bg-white shadow overflow-hidden sm:rounded-md" v-if="data.length">
-      <div v-if="header">
+    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+      <div v-if="$slots.header">
         <slot name="header" />
       </div>
-      <ul>
-        <li v-for="(item, index) in data" :key="index">
-          <slot :item="item" :index="index" />
-        </li>
-      </ul>
+      <div v-if="data.length">
+        <ul>
+          <li v-for="(item, index) in data" :key="index">
+            <slot :item="item" :index="index" />
+          </li>
+        </ul>
+      </div>
+      <div
+        v-else
+        class="bg-white shadow overflow-hidden sm:rounded-md p-8 flex items-center justify-center text-gray-600"
+      >{{missingData}}</div>
+      <div v-if="$slots.footer">
+        <slot name="footer" />
+      </div>
     </div>
-    <div
-      v-else
-      class="bg-white shadow overflow-hidden sm:rounded-md p-8 flex items-center justify-center text-gray-600"
-    >{{missingData}}</div>
   </div>
 </template>
 

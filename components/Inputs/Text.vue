@@ -74,7 +74,7 @@ export default {
 
       if (this.errors.length) {
         inputClass +=
-          'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300'
+          ' border-red-300 text-red-900 placeholder-red-300 focus:border-red-300'
       }
 
       return inputClass

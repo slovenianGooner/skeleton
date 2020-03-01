@@ -14,9 +14,11 @@ import LoadingButton from './components/Buttons/Loading.vue'
 // Inputs
 import TextInput from './components/Inputs/Text.vue'
 import SearchInput from './components/Inputs/Search.vue'
+import SelectInput from './components/Inputs/Select.vue'
 
 import List from './components/List.vue'
 import Modal from './components/Modal.vue'
+import CardPagination from './components/CardPagination.vue'
 
 export default {
   directives: {
@@ -35,9 +37,11 @@ export default {
     // Inputs
     TextInput,
     SearchInput,
+    SelectInput,
     // Other
     List,
-    Modal
+    Modal,
+    CardPagination
   },
   methods: {
     openModal($ref) {

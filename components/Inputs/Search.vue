@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="submit" class="w-full">
     <div class="flex rounded-md shadow-sm">
       <div class="relative flex-grow focus-within:z-10">
         <input

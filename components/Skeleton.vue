@@ -17,13 +17,18 @@
           '-translate-x-full': !sidebarOpen
         }"
       >
-        <div class="absolute top-0 right-0 -mr-14 p-1">
+        <div class="absolute top-0 right-0 -mr-14">
           <button
             x-show="sidebarOpen"
             @click="sidebarOpen = false"
-            class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600"
+            class="flex items-center justify-center h-16 w-16 rounded-full focus:outline-none text-gray-800"
           >
-            <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <svg
+              class="h-6 w-6 text-gray-800"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -34,7 +39,6 @@
           </button>
         </div>
         <div class="flex-shrink-0 flex items-center h-16 px-4" :class="[headerColor]">
-          >
           <div class="text-2xl text-white font-semibold">
             <slot name="logo" />
           </div>
@@ -51,7 +55,7 @@
     <div class="hidden md:flex md:flex-shrink-0">
       <div class="flex flex-col w-64">
         <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
-          <div class="text-2xl text-white font-semibold">
+          <div class="text-2xl text-gray-800 font-semibold">
             <slot name="logo" />
           </div>
         </div>
@@ -67,7 +71,7 @@
       <div class="relative z-10 flex-shrink-0 flex h-16 shadow" :class="[headerColor]">
         <button
           @click.stop="sidebarOpen = true"
-          class="px-4 border-r border-white text-white focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
+          class="px-4 text-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
         >
           <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path
@@ -85,7 +89,7 @@
                 <slot name="userDropdownButton" :toggleUserDropdown="toggleUserDropdown">
                   <button
                     @click="toggleUserDropdown"
-                    class="max-w-xs flex items-center focus:outline-none text-white"
+                    class="max-w-xs flex items-center focus:outline-none text-gray-800"
                   >
                     <i class="fa fa-user mr-2"></i>
                     <slot name="userDropdownTitle">User's name</slot>

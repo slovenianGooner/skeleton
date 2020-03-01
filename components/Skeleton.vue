@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="h-screen flex overflow-hidden bg-gray-100"
-    @keydown.esc="sidebarOpen = false"
-  >
+  <div class="h-screen flex overflow-hidden bg-gray-100" @keydown.esc="sidebarOpen = false">
     <!-- Off-canvas menu for mobile -->
     <div class="md:hidden">
       <div
@@ -26,12 +23,7 @@
             @click="sidebarOpen = false"
             class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600"
           >
-            <svg
-              class="h-6 w-6 text-white"
-              stroke="currentColor"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
+            <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -41,7 +33,8 @@
             </svg>
           </button>
         </div>
-        <div class="flex-shrink-0 flex items-center h-16 px-4 bg-gray-900">
+        <div class="flex-shrink-0 flex items-center h-16 px-4" :class="[headerColor]">
+          >
           <div class="text-2xl text-white font-semibold">
             <slot name="logo" />
           </div>
@@ -57,7 +50,7 @@
     <!-- Static sidebar for desktop -->
     <div class="hidden md:flex md:flex-shrink-0">
       <div class="flex flex-col w-64">
-        <div class="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
+        <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
           <div class="text-2xl text-white font-semibold">
             <slot name="logo" />
           </div>
@@ -71,17 +64,12 @@
       </div>
     </div>
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
-      <div class="relative z-10 flex-shrink-0 flex h-16 bg-gray-900 shadow">
+      <div class="relative z-10 flex-shrink-0 flex h-16 shadow" :class="[headerColor]">
         <button
           @click.stop="sidebarOpen = true"
           class="px-4 border-r border-white text-white focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
         >
-          <svg
-            class="h-6 w-6"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -94,10 +82,7 @@
           <div class="flex items-center">
             <div v-on-clickaway="closeUserDropdown" class="ml-3 relative">
               <div>
-                <slot
-                  name="userDropdownButton"
-                  :toggleUserDropdown="toggleUserDropdown"
-                >
+                <slot name="userDropdownButton" :toggleUserDropdown="toggleUserDropdown">
                   <button
                     @click="toggleUserDropdown"
                     class="max-w-xs flex items-center focus:outline-none text-white"
@@ -112,17 +97,14 @@
                 class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
               >
                 <div class="py-1 rounded-md bg-white shadow-xs">
-                  <slot name="userDropdownContent"></slot>
+                  <slot name="userDropdownContent" :toggleUserDropdown="toggleUserDropdown"></slot>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <main
-        class="flex-1 relative z-0 overflow-y-auto focus:outline-none"
-        tabindex="0"
-      >
+      <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0">
         <slot />
       </main>
     </div>
@@ -131,6 +113,12 @@
 
 <script>
 export default {
+  props: {
+    headerColor: {
+      type: String,
+      default: 'bg-gray-900'
+    }
+  },
   data() {
     return {
       sidebarOpen: false,

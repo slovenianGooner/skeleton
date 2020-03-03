@@ -1,6 +1,6 @@
 <template>
   <span class="shadow-sm rounded-md">
-    <slot name="link">
+    <slot>
       <inertia-link
         class="inline-flex items-center px-4 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
         :class="[colors]"

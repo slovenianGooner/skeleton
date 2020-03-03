@@ -39,7 +39,6 @@ export default {
   inheritAttrs: false,
   props: {
     options: {
-      type: Array,
       default: () => {
         return []
       }

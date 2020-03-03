@@ -15,6 +15,7 @@ import LoadingButton from './components/Buttons/Loading.vue'
 import TextInput from './components/Inputs/Text.vue'
 import SearchInput from './components/Inputs/Search.vue'
 import SelectInput from './components/Inputs/Select.vue'
+import ToggleInput from './components/Inputs/Toggle.vue'
 
 import List from './components/List.vue'
 import Modal from './components/Modal.vue'
@@ -38,6 +39,7 @@ export default {
     TextInput,
     SearchInput,
     SelectInput,
+    ToggleInput,
     // Other
     List,
     Modal,

@@ -1,5 +1,5 @@
 <template>
-  <div v-on-clickaway="closeDropdown" class="ml-3 relative">
+  <div v-on-clickaway="closeDropdown" class="relative">
     <div
       v-if="open && dropUp"
       class="origin-bottom-right absolute bottom-full mb-2 right-0 w-48 rounded-md shadow-lg z-10"

@@ -2,7 +2,7 @@
   <div v-on-clickaway="closeDropdown" class="ml-3 relative">
     <div
       v-if="open && dropUp"
-      class="transform -translate-y-full origin-bottom-right absolute bottom-0 right-0 mt-2 w-48 rounded-md shadow-lg"
+      class="origin-bottom-right absolute bottom-full mb-2 right-0 w-48 rounded-md shadow-lg z-10"
     >
       <div class="py-1 rounded-md bg-white shadow-xs">
         <slot name="content" :toggleDropdown="toggleDropdown"></slot>

@@ -17,7 +17,7 @@
           '-translate-x-full': !sidebarOpen
         }"
       >
-        <div class="absolute top-0 right-0 -mr-14">
+        <div class="absolute top-0 right-0">
           <button
             x-show="sidebarOpen"
             @click="sidebarOpen = false"

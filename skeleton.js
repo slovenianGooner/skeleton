@@ -20,6 +20,7 @@ import ToggleInput from './components/Inputs/Toggle.vue'
 import List from './components/List.vue'
 import Modal from './components/Modal.vue'
 import CardPagination from './components/CardPagination.vue'
+import Dropdown from './components/Dropdown.vue'
 
 export default {
   directives: {
@@ -43,7 +44,8 @@ export default {
     // Other
     List,
     Modal,
-    CardPagination
+    CardPagination,
+    Dropdown
   },
   methods: {
     openModal($ref) {

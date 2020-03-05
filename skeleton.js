@@ -16,6 +16,7 @@ import TextInput from './components/Inputs/Text.vue'
 import SearchInput from './components/Inputs/Search.vue'
 import SelectInput from './components/Inputs/Select.vue'
 import ToggleInput from './components/Inputs/Toggle.vue'
+import ArrayableInput from './components/Inputs/Arrayable.vue'
 
 import List from './components/List.vue'
 import Modal from './components/Modal.vue'
@@ -41,11 +42,12 @@ export default {
     SearchInput,
     SelectInput,
     ToggleInput,
+    ArrayableInput,
     // Other
     List,
     Modal,
     CardPagination,
-    Dropdown
+    Dropdown,
   },
   methods: {
     openModal($ref) {

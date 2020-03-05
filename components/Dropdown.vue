@@ -1,7 +1,7 @@
 <template>
   <div v-on-clickaway="closeDropdown" class="relative">
     <div
-      v-if="open && dropUp"
+      v-show="open && dropUp"
       class="origin-bottom-right absolute bottom-full mb-2 right-0 w-48 rounded-md shadow-lg z-10"
     >
       <div class="py-1 rounded-md bg-white shadow-xs">
@@ -19,7 +19,7 @@
       </slot>
     </div>
     <div
-      v-if="open && !dropUp"
+      v-show="open && !dropUp"
       class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
     >
       <div class="py-1 rounded-md bg-white shadow-xs">

@@ -31,15 +31,10 @@
 
 <script>
 export default {
-  props: {
-    dropUp: {
-      type: Boolean,
-      default: false
-    }
-  },
   data() {
     return {
-      open: false
+      open: false,
+      dropUp: false
     }
   },
   methods: {
@@ -48,6 +43,9 @@ export default {
     },
     closeDropdown() {
       this.open = false
+    },
+    toggleDirection() {
+      this.dropUp = !this.dropUp
     }
   }
 }

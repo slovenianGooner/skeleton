@@ -7,8 +7,8 @@
         :class="[colors]"
         :href="href"
       >
-        <i :class="[icon]" class="fa-fw mr-2"></i>
-        {{ title }}
+        <i :class="[icon]" class="fa-fw"></i>
+        <span class="ml-2" v-if="title">{{ title }}</span>
       </inertia-link>
     </slot>
   </span>

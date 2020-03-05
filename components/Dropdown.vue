@@ -43,9 +43,6 @@ export default {
     },
     closeDropdown() {
       this.open = false
-    },
-    toggleDirection() {
-      this.dropUp = !this.dropUp
     }
   }
 }

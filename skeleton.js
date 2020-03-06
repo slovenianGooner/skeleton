@@ -22,6 +22,7 @@ import List from './components/List.vue'
 import Modal from './components/Modal.vue'
 import CardPagination from './components/CardPagination.vue'
 import Dropdown from './components/Dropdown.vue'
+import CollapsibleSection from './components/Section.vue'
 
 export default {
   directives: {
@@ -48,6 +49,7 @@ export default {
     Modal,
     CardPagination,
     Dropdown,
+    CollapsibleSection
   },
   methods: {
     openModal($ref) {

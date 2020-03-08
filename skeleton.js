@@ -1,5 +1,4 @@
 import { directive as onClickaway } from 'vue-clickaway';
-import Vue from "vue"
 
 // Base
 import Login from './components/Login.vue'
@@ -25,19 +24,18 @@ import CardPagination from './components/CardPagination.vue'
 import Dropdown from './components/Dropdown.vue'
 import CollapsibleSection from './components/Section.vue'
 
-Vue.directive('updown', {
-  inserted(el, binding, vnode) {
-    el.addEventListener('click', () => {
-      let space = window.innerHeight - el.getBoundingClientRect().bottom
-      let height = Math.max(el.children[0].offsetHeight, el.children[2].offsetHeight)
-      vnode.componentInstance.$data.dropUp = space < height
-    })
-  }
-})
-
 export default {
   directives: {
     onClickaway: onClickaway,
+    updown: {
+      inserted(el, binding, vnode) {
+        el.addEventListener('click', () => {
+          let space = window.innerHeight - el.getBoundingClientRect().bottom
+          let height = Math.max(el.children[0].offsetHeight, el.children[2].offsetHeight)
+          vnode.componentInstance.$data.dropUp = space < height
+        })
+      }
+    }
   },
   components: {
     // Base

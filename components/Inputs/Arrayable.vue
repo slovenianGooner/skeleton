@@ -3,14 +3,14 @@
     <label v-if="label" class="mb-2 block text-sm font-medium leading-5 text-gray-700">
       {{ label }}
       <button
-        class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-800 py-1 px-2 ml-2"
+        class="border border-gray-300 rounded-md text-gray-800 py-1 px-2 ml-2"
         @click.prevent="toggleCollapse"
       >
         <span v-if="collapsed">
-          <i class="fa fa-plus fa-fw mr-1"></i> Open
+          <i class="fal fa-plus fa-fw mr-1"></i> Open
         </span>
         <span v-else>
-          <i class="fa fa-minus fa-fw mr-1"></i> Close
+          <i class="fal fa-minus fa-fw mr-1"></i> Close
         </span>
       </button>
     </label>
@@ -39,7 +39,7 @@
         @click.prevent="addItem"
         class="mt-2 inline-flex justify-center items-center rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
       >
-        <i class="fa fa-plus fa-fw mr-1"></i>
+        <i class="fal fa-plus fa-fw mr-1"></i>
         {{addTitle}}
       </button>
     </div>
@@ -67,11 +67,15 @@ export default {
       default: () => {
         return []
       }
+    },
+    startCollapsed: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
     return {
-      collapsed: true,
+      collapsed: this.startCollapsed,
       items: []
     }
   },
@@ -91,7 +95,8 @@ export default {
       this.collapsed = !this.collapsed
     },
     addItem() {
-      this.items.push(this.placeholder)
+      let item = { ...this.placeholder }
+      this.items.push(item)
     },
     removeItem(index) {
       this.items.splice(index, 1)

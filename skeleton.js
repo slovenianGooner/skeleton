@@ -19,7 +19,9 @@ import ToggleInput from './components/Inputs/Toggle.vue'
 import ArrayableInput from './components/Inputs/Arrayable.vue'
 
 import List from './components/List.vue'
-import Modal from './components/Modal.vue'
+import Modal from './components/Modals/Modal.vue'
+import ConfirmBox from './components/Modals/ConfirmBox.vue'
+import LoadingSpinner from './components/LoadingSpinner.vue'
 import CardPagination from './components/CardPagination.vue'
 import Dropdown from './components/Dropdown.vue'
 import CollapsibleSection from './components/Section.vue'
@@ -56,9 +58,11 @@ export default {
     // Other
     List,
     Modal,
+    ConfirmBox,
     CardPagination,
     Dropdown,
-    CollapsibleSection
+    CollapsibleSection,
+    LoadingSpinner
   },
   methods: {
     openModal($ref) {

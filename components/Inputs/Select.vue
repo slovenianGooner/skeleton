@@ -14,8 +14,16 @@
         :class="computedInputClass()"
         @input="$emit('input', $event.target.value)"
       >
-        <option v-if="defaultValue.title" :value="defaultValue.value" v-html="defaultValue.title"></option>
-        <option :value="index" v-for="(item, index) in options" :key="index">{{ getLabel(item) }}</option>
+        <option
+          v-if="defaultValue && defaultValue.title"
+          :value="defaultValue.value"
+          v-html="defaultValue.title"
+        ></option>
+        <option
+          :value="getValue(item, index)"
+          v-for="(item, index) in options"
+          :key="index"
+        >{{ getLabel(item) }}</option>
       </select>
       <div
         class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
@@ -58,6 +66,9 @@ export default {
     labelField: {
       default: null
     },
+    valueField: {
+      default: null
+    },
     value: String,
     label: String,
     errors: {
@@ -70,10 +81,17 @@ export default {
   methods: {
     getLabel(item) {
       if (this.labelField) {
-        return item[labelField]
+        return item[this.labelField]
       }
 
       return item
+    },
+    getValue(item, index) {
+      if (this.valueField) {
+        return item[this.valueField]
+      }
+
+      return index
     },
     focus() {
       this.$refs.input.focus()

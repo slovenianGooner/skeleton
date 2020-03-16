@@ -44,6 +44,7 @@ export default {
     },
     toggle() {
       this.toggleValue = !this.toggleValue
+      this.$emit('toggle')
     }
   }
 }

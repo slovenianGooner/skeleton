@@ -12,9 +12,13 @@ import FormButton from './components/Buttons/Form.vue'
 import LoadingButton from './components/Buttons/Loading.vue'
 
 // Inputs
+import FileInput from './components/Inputs/File.vue'
+import PhotoInput from './components/Inputs/Photo.vue'
 import TextInput from './components/Inputs/Text.vue'
+import TextInputWithButton from './components/Inputs/TextWithButton.vue'
 import SearchInput from './components/Inputs/Search.vue'
 import SelectInput from './components/Inputs/Select.vue'
+import SelectInputWithButton from './components/Inputs/SelectWithButton.vue'
 import ToggleInput from './components/Inputs/Toggle.vue'
 import ArrayableInput from './components/Inputs/Arrayable.vue'
 
@@ -25,6 +29,7 @@ import LoadingSpinner from './components/LoadingSpinner.vue'
 import CardPagination from './components/CardPagination.vue'
 import Dropdown from './components/Dropdown.vue'
 import CollapsibleSection from './components/Section.vue'
+import FilterBlock from './components/FilterBlock.vue'
 
 export default {
   directives: {
@@ -55,6 +60,10 @@ export default {
     SelectInput,
     ToggleInput,
     ArrayableInput,
+    FileInput,
+    PhotoInput,
+    TextInputWithButton,
+    SelectInputWithButton,
     // Other
     List,
     Modal,
@@ -62,7 +71,8 @@ export default {
     CardPagination,
     Dropdown,
     CollapsibleSection,
-    LoadingSpinner
+    LoadingSpinner,
+    FilterBlock
   },
   methods: {
     openModal($ref) {

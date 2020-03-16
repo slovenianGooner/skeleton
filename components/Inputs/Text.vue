@@ -6,15 +6,23 @@
       :for="id"
     >{{ label }}</label>
     <div class="relative rounded-md shadow-sm" :class="[groupClass !== null ? groupClass : 'mt-1']">
-      <input
+      <slot
+        name="input"
         :id="id"
-        ref="input"
-        v-bind="$attrs"
-        :class="[computedInputClass()]"
-        :type="type"
+        :computedInputClass="computedInputClass"
         :value="value"
-        @input="$emit('input', $event.target.value)"
-      />
+        :emitInput="emitInput"
+      >
+        <input
+          :id="id"
+          ref="input"
+          v-bind="$attrs"
+          :class="[computedInputClass()]"
+          :type="type"
+          :value="value"
+          @input="emitInput"
+        />
+      </slot>
       <div
         class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
         v-if="errors.length"
@@ -56,6 +64,9 @@ export default {
     groupClass: {}
   },
   methods: {
+    emitInput($event) {
+      this.$emit('input', $event.target.value)
+    },
     focus() {
       this.$refs.input.focus()
     },

@@ -21,10 +21,12 @@
           <button
             x-show="sidebarOpen"
             @click="sidebarOpen = false"
-            class="flex items-center justify-center h-16 w-16 rounded-full focus:outline-none text-gray-800"
+            class="flex items-center justify-center h-16 w-16 rounded-full focus:outline-none"
+            :class="[textColor]"
           >
             <svg
-              class="h-6 w-6 text-gray-800"
+              class="h-6 w-6"
+              :class="[textColor]"
               stroke="currentColor"
               fill="none"
               viewBox="0 0 24 24"
@@ -55,7 +57,7 @@
     <div class="hidden md:flex md:flex-shrink-0">
       <div class="flex flex-col w-64">
         <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
-          <div class="text-2xl text-gray-800 font-semibold">
+          <div class="text-2xl font-semibold" :class="[textColor]">
             <slot name="logo" />
           </div>
         </div>
@@ -71,7 +73,8 @@
       <div class="relative z-10 flex-shrink-0 flex h-16 shadow" :class="[headerColor]">
         <button
           @click.stop="sidebarOpen = true"
-          class="px-4 text-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
+          :class="[textColor]"
+          class="px-4 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
         >
           <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path
@@ -89,7 +92,8 @@
                 <slot name="userDropdownButton" :toggleUserDropdown="toggleUserDropdown">
                   <button
                     @click="toggleUserDropdown"
-                    class="max-w-xs flex items-center focus:outline-none text-gray-800"
+                    class="max-w-xs flex items-center focus:outline-none"
+                    :class="[textColor]"
                   >
                     <i class="fa fa-user mr-2"></i>
                     <slot name="userDropdownTitle">User's name</slot>
@@ -121,6 +125,10 @@ export default {
     headerColor: {
       type: String,
       default: 'bg-gray-900'
+    },
+    textColor: {
+      type: String,
+      default: 'text-white'
     }
   },
   data() {

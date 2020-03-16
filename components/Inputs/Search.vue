@@ -32,19 +32,24 @@ export default {
     searchTitle: {
       type: String,
       default: 'Search'
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    urlQuery: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   },
   data() {
     return {
-      search: null
+      search: this.value
     }
   },
-  created() {
-    this.search =
-      this.queryObject() && this.queryObject().search
-        ? this.queryObject().search
-        : null
-  },
+  created() {},
   methods: {
     submit() {
       this.$emit('submit')
@@ -52,7 +57,7 @@ export default {
       if (!this.preventDefaultSubmit) {
         this.$inertia.replace(
           route(route().current(), {
-            ...this.queryObject(),
+            ...this.urlQuery,
             search: this.search,
             page: 1
           })

@@ -4,6 +4,7 @@
       v-if="label"
       class="block text-sm font-medium leading-5 text-gray-700"
       :for="id"
+      :class="{ 'text-red-500': errors.length }"
     >{{ label }}</label>
     <div
       class="mt-1 flex rounded-md shadow-sm"
@@ -81,7 +82,7 @@ export default {
     valueField: {
       default: null
     },
-    value: String,
+    value: {},
     label: String,
     errors: {
       type: Array,

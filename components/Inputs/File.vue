@@ -4,6 +4,7 @@
       v-if="label"
       class="block text-sm font-medium leading-5 text-gray-700"
       :for="id"
+      :class="{ 'text-red-500': errors.length }"
     >{{ label }}</label>
     <div class="relative rounded-md shadow-sm" :class="[groupClass !== null ? groupClass : 'mt-1']">
       <input

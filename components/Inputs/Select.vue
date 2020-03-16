@@ -3,6 +3,7 @@
     <label
       v-if="label"
       class="block text-sm font-medium leading-5 text-gray-700"
+      :class="{ 'text-red-500': errors.length }"
       :for="id"
     >{{ label }}</label>
     <div class="relative rounded-md shadow-sm" :class="[groupClass !== null ? groupClass : 'mt-1']">
@@ -69,7 +70,7 @@ export default {
     valueField: {
       default: null
     },
-    value: String,
+    value: {},
     label: String,
     errors: {
       type: Array,
@@ -80,6 +81,10 @@ export default {
   },
   methods: {
     getLabel(item) {
+      if (typeof this.labelField === 'function') {
+        return this.labelField(item)
+      }
+
       if (this.labelField) {
         return item[this.labelField]
       }

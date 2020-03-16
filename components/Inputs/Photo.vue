@@ -3,6 +3,7 @@
     <label
       v-if="label"
       class="block text-sm font-medium leading-5 text-gray-700"
+      :class="{ 'text-red-500': errors.length }"
       :for="id"
     >{{ label }}</label>
     <div class="mt-2 flex items-center">

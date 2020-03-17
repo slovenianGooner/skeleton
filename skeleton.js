@@ -24,6 +24,7 @@ import ArrayableInput from './components/Inputs/Arrayable.vue'
 
 import List from './components/List.vue'
 import Modal from './components/Modals/Modal.vue'
+import FullscreenModal from './components/Modals/FullscreenModal.vue'
 import ConfirmBox from './components/Modals/ConfirmBox.vue'
 import LoadingSpinner from './components/LoadingSpinner.vue'
 import CardPagination from './components/CardPagination.vue'
@@ -67,6 +68,7 @@ export default {
     // Other
     List,
     Modal,
+    FullscreenModal,
     ConfirmBox,
     CardPagination,
     Dropdown,

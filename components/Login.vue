@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full">
+    <div :class="[loginBoxClasses]">
       <div>
         <slot name="header">
           <h1
@@ -99,6 +99,10 @@
 export default {
   props: {
     formProps: {},
+    loginBoxClasses: {
+      type: String,
+      default: 'max-w-md w-full'
+    },
     colorTheme: {
       type: String,
       default: 'indigo'

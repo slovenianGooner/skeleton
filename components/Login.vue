@@ -65,8 +65,8 @@
           </div>
         </slot>
 
-        <div class="mt-6">
-          <slot name="signInButton">
+        <slot name="signInButton">
+          <div class="mt-6">
             <button
               type="submit"
               class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white focus:outline-none focus:shadow-outline-red transition duration-150 ease-in-out"
@@ -88,8 +88,8 @@
               </span>
               {{signInButtonTitle}}
             </button>
-          </slot>
-        </div>
+          </div>
+        </slot>
       </form>
     </div>
   </div>

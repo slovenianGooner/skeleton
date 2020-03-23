@@ -32,7 +32,7 @@
             <div class="-mt-px">
               <text-input
                 v-model="form.password"
-                placeholder="Password"
+                :placeholder="passwordPlaceholder"
                 input-class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                 group-class="mt-0"
                 type="password"
@@ -61,6 +61,9 @@
                 for="remember_me"
                 class="ml-2 block text-sm leading-5 text-gray-900"
               >{{rememberMeTitle}}</label>
+            </div>
+            <div class="text-sm leading-5" v-if="$slots.forgotPassword">
+              <slot name="forgotPassword" />
             </div>
           </div>
         </slot>
@@ -99,6 +102,10 @@
 export default {
   props: {
     formProps: {},
+    passwordPlaceholder: {
+      type: String,
+      default: 'Password'
+    },
     loginBoxClasses: {
       type: String,
       default: 'max-w-md w-full'

@@ -3,6 +3,7 @@
     <label v-if="label" class="mb-2 block text-sm font-medium leading-5 text-gray-700">
       {{ label }}
       <button
+        v-if="showCollapseToggle"
         class="border border-gray-300 rounded-md text-gray-800 py-1 px-2 ml-2"
         @click.prevent="toggleCollapse"
       >
@@ -69,6 +70,10 @@ export default {
       }
     },
     startCollapsed: {
+      type: Boolean,
+      default: true
+    },
+    showCollapseToggle: {
       type: Boolean,
       default: true
     }

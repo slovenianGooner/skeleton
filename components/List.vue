@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div
-        v-else
+        v-else-if="showMissingData"
         class="bg-white shadow overflow-hidden sm:rounded-md p-8 flex items-center justify-center text-gray-600"
       >{{missingData}}</div>
       <div v-if="$slots.footer">
@@ -34,6 +34,10 @@ export default {
       default: () => {
         return []
       }
+    },
+    showMissingData: {
+      type: Boolean,
+      default: true
     },
     missingData: {
       type: String,

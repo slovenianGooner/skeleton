@@ -10,10 +10,7 @@
     </div>
     <div>
       <slot name="button" :toggleDropdown="toggleDropdown">
-        <button
-          @click.prevent="toggleDropdown"
-          class="inline-flex justify-center items-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
-        >
+        <button @click.prevent="toggleDropdown" :class="dropdownClass">
           <slot name="title">Title</slot>
         </button>
       </slot>
@@ -31,10 +28,21 @@
 
 <script>
 export default {
+  props: {
+    shouldDropUp: {
+      type: Boolean,
+      default: false
+    },
+    dropdownClass: {
+      type: String,
+      default:
+        'inline-flex justify-center items-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150'
+    }
+  },
   data() {
     return {
       open: false,
-      dropUp: false
+      dropUp: this.shouldDropUp
     }
   },
   methods: {

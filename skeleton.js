@@ -2,6 +2,8 @@ import { directive as onClickaway } from 'vue-clickaway';
 
 // Base
 import Login from './components/Login.vue'
+import PasswordResetRequest from './components/PasswordResetRequest.vue'
+import ResetPassword from './components/ResetPassword.vue'
 import Skeleton from './components/Skeleton.vue'
 import NavigationItem from './components/NavigationItem.vue'
 import PageHeader from './components/PageHeader.vue'
@@ -48,6 +50,8 @@ export default {
   components: {
     // Base
     Login,
+    PasswordResetRequest,
+    ResetPassword,
     Skeleton,
     NavigationItem,
     PageHeader,

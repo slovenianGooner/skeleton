@@ -3,7 +3,7 @@
     <div class="relative flex items-center mb-4">
       <div class="h-1 border-b w-full"></div>
       <button
-        class="block px-4 text-sm w-96 text-center text-gray-500 focus:outline-none"
+        class="block px-4 text-sm w-128 sm:w-96 text-center text-gray-500 focus:outline-none"
         @click.prevent="toggle"
       >
         <i class="fal fa-filter"></i>

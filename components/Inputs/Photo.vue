@@ -7,12 +7,14 @@
       :for="id"
     >{{ label }}</label>
     <div class="mt-2 flex items-center">
-      <span
+      <a
+        :href="preview"
+        target="_blank"
         class="relative h-12 w-12 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center"
       >
         <img :src="preview" alt="Preview" v-if="preview" class="object-cover absolute h-full" />
         <i class="fa fa-image" v-else></i>
-      </span>
+      </a>
       <span class="ml-5 rounded-md shadow-sm">
         <button
           type="button"

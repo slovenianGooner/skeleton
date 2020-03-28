@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen flex overflow-hidden bg-gray-100" @keydown.esc="sidebarOpen = false">
     <!-- Off-canvas menu for mobile -->
-    <div class="md:hidden">
+    <div :class="[breakpoint + ':hidden']">
       <div
         @click="sidebarOpen = false"
         class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300"
@@ -54,7 +54,7 @@
     </div>
 
     <!-- Static sidebar for desktop -->
-    <div class="hidden md:flex md:flex-shrink-0">
+    <div class="hidden" :class="[breakpoint + ':flex ' + breakpoint + ':flex-shrink-0']">
       <div class="flex flex-col w-64">
         <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
           <div class="text-2xl font-semibold" :class="[textColor]">
@@ -73,8 +73,8 @@
       <div class="relative z-10 flex-shrink-0 flex h-16 shadow" :class="[headerColor]">
         <button
           @click.stop="sidebarOpen = true"
-          :class="[textColor]"
-          class="px-4 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
+          :class="[textColor, breakpoint + ':hidden']"
+          class="px-4 focus:outline-none focus:bg-gray-100 focus:text-gray-600"
         >
           <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path
@@ -129,6 +129,10 @@ export default {
     textColor: {
       type: String,
       default: 'text-white'
+    },
+    breakpoint: {
+      type: String,
+      default: 'md'
     }
   },
   data() {

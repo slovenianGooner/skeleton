@@ -1,7 +1,8 @@
 <template>
   <form @submit.prevent="submit" class="w-full">
-    <div class="flex rounded-md shadow-sm">
-      <div class="relative flex-grow focus-within:z-10">
+    <div class="flex" :class="[searchContainerClass]">
+      <slot name="prefix"></slot>
+      <div class="relative flex-grow focus-within:z-10" :class="[searchClass]">
         <input
           class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5"
           :placeholder="placeholder"
@@ -42,6 +43,14 @@ export default {
       default: () => {
         return {}
       }
+    },
+    searchContainerClass: {
+      type: String,
+      default: 'rounded-md shadow-sm'
+    },
+    searchClass: {
+      type: String,
+      default: ''
     }
   },
   data() {

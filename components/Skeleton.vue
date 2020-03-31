@@ -63,7 +63,7 @@
         </div>
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
           <!-- Sidebar component, swap this element with another sidebar if you like -->
-          <nav class="flex-1 px-2 py-4 bg-gray-800">
+          <nav class="flex-1 px-2 py-4" :class="[sidebarColor]">
             <slot name="navigation" />
           </nav>
         </div>
@@ -129,6 +129,10 @@ export default {
     textColor: {
       type: String,
       default: 'text-white'
+    },
+    sidebarColor: {
+      type: String,
+      default: 'bg-gray-800'
     },
     breakpoint: {
       type: String,

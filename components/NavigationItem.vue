@@ -20,6 +20,11 @@ export default {
     title: {},
     to: {},
     icon: {},
+    itemClass: {
+      type: String,
+      default:
+        'group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-300 focus:outline-none transition ease-in-out duration-150'
+    },
     hoverClass: {
       type: String,
       default:
@@ -33,8 +38,7 @@ export default {
   },
   computed: {
     buttonClass() {
-      let buttonClass =
-        'group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-300 focus:outline-none transition ease-in-out duration-150'
+      let buttonClass = this.itemClass
       buttonClass += ' ' + this.hoverClass
 
       if (this.open) {

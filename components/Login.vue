@@ -93,6 +93,8 @@
             </button>
           </div>
         </slot>
+
+        <slot name="footer"></slot>
       </form>
     </div>
   </div>

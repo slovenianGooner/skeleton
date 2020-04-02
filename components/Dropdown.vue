@@ -2,7 +2,8 @@
   <div v-on-clickaway="closeDropdown" class="relative">
     <div
       v-show="open && dropUp"
-      class="origin-bottom-right absolute bottom-full mb-2 right-0 w-48 rounded-md shadow-lg z-10"
+      :class="[positionDropUp]"
+      class="absolute w-48 rounded-md shadow-lg z-10"
     >
       <div class="py-1 rounded-md bg-white shadow-xs">
         <slot name="content" :toggleDropdown="toggleDropdown"></slot>
@@ -17,7 +18,8 @@
     </div>
     <div
       v-show="open && !dropUp"
-      class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+      class="absolute w-48 rounded-md shadow-lg"
+      :class="[positionDropDown]"
     >
       <div class="py-1 rounded-md bg-white shadow-xs">
         <slot name="content" :toggleDropdown="toggleDropdown"></slot>
@@ -32,6 +34,14 @@ export default {
     shouldDropUp: {
       type: Boolean,
       default: false
+    },
+    positionDropDown: {
+      type: String,
+      default: 'origin-top-right right-0 mt-2'
+    },
+    positionDropUp: {
+      type: String,
+      default: 'origin-bottom-right bottom-full mb-2'
     },
     dropdownClass: {
       type: String,

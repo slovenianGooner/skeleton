@@ -11,11 +11,11 @@
         }"
       ></div>
       <div
-        class="fixed inset-y-0 left-0 flex flex-col z-40 max-w-xs w-full bg-gray-800 transform ease-in-out duration-300"
-        :class="{
+        class="fixed inset-y-0 left-0 flex flex-col z-40 max-w-xs w-full transform ease-in-out duration-300"
+        :class="[{
           'translate-x-0': sidebarOpen,
-          '-translate-x-full': !sidebarOpen
-        }"
+          '-translate-x-full': !sidebarOpen,
+        }, sidebarColor]"
       >
         <div class="absolute top-0 right-0">
           <button

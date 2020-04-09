@@ -6,7 +6,7 @@
         <span class="block sm:inline">{{ message }}</span>
       </div>
 
-      <slot>
+      <slot :data="data" :content="content">
         <div v-html="content"></div>
       </slot>
     </template>

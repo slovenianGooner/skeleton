@@ -6,7 +6,9 @@
         <span class="block sm:inline">{{ message }}</span>
       </div>
 
-      <slot />
+      <slot>
+        <div v-html="content"></div>
+      </slot>
     </template>
     <template slot="footer">
       <span class="flex w-full rounded-md shadow-sm sm:col-start-2">
@@ -49,6 +51,7 @@ export default {
       loading: false,
       open: false,
       message: null,
+      content: null,
       data: {}
     }
   },
@@ -56,11 +59,13 @@ export default {
     close() {
       this.closeModal(this)
       this.data = {}
+      this.content = null
     },
     submit() {
       document.getElementsByTagName('body')[0].removeAttribute('style')
       this.$emit('confirm', this.data)
       this.data = {}
+      this.content = null
     }
   }
 }

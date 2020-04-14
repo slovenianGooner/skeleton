@@ -25,7 +25,7 @@
               </button>
             </div>
             <div class="border-l p-4 w-full">
-              <slot :newItem="item"></slot>
+              <slot :newItem="item" :index="index"></slot>
             </div>
           </div>
         </div>

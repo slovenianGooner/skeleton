@@ -33,6 +33,7 @@ import CardPagination from './components/CardPagination.vue'
 import Dropdown from './components/Dropdown.vue'
 import CollapsibleSection from './components/Section.vue'
 import FilterBlock from './components/FilterBlock.vue'
+import ErrorMessage from './components/ErrorMessage.vue'
 
 export default {
   directives: {
@@ -79,6 +80,7 @@ export default {
     CollapsibleSection,
     LoadingSpinner,
     FilterBlock,
+    ErrorMessage
   },
   methods: {
     openModal($ref) {

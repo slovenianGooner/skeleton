@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen flex overflow-hidden bg-gray-100" @keydown.esc="sidebarOpen = false">
     <!-- Off-canvas menu for mobile -->
-    <div :class="[breakpoint + ':hidden']">
+    <div :class="[breakpoint + ':hidden']" v-if="$slots.navigation">
       <div
         @click="sidebarOpen = false"
         class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300"
@@ -55,7 +55,7 @@
 
     <!-- Static sidebar for desktop -->
     <div class="hidden" :class="[breakpoint + ':flex ' + breakpoint + ':flex-shrink-0']">
-      <div class="flex flex-col w-64">
+      <div class="flex flex-col w-64" v-if="$slots.navigation">
         <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
           <div class="text-2xl font-semibold" :class="[textColor]">
             <slot name="logo" />
@@ -71,7 +71,15 @@
     </div>
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
       <div class="relative z-10 flex-shrink-0 flex h-16 shadow" :class="[headerColor]">
+        <div class="flex flex-col w-64" v-if="!$slots.navigation">
+          <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
+            <div class="text-2xl font-semibold" :class="[textColor]">
+              <slot name="logo" />
+            </div>
+          </div>
+        </div>
         <button
+          v-if="$slots.navigation"
           @click.stop="sidebarOpen = true"
           :class="[textColor, breakpoint + ':hidden']"
           class="px-4 focus:outline-none focus:bg-gray-100 focus:text-gray-600"
@@ -85,7 +93,7 @@
             />
           </svg>
         </button>
-        <div class="flex-1 px-4 flex justify-end">
+        <div class="flex-1 px-4 flex justify-end" v-if="showUserDropdown">
           <div class="flex items-center">
             <div v-on-clickaway="closeUserDropdown" class="ml-3 relative">
               <div>
@@ -122,6 +130,10 @@
 <script>
 export default {
   props: {
+    showUserDropdown: {
+      type: Boolean,
+      default: true
+    },
     headerColor: {
       type: String,
       default: 'bg-gray-900'

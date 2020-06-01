@@ -92,6 +92,10 @@ export default {
       return item
     },
     getValue(item, index) {
+      if (typeof this.valueField === 'function') {
+        return this.valueField(item)
+      }
+
       if (this.valueField) {
         return item[this.valueField]
       }

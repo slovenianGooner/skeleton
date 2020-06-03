@@ -19,12 +19,18 @@
             class="flex"
             :class="{ 'border-t': header, 'items-center': !header}"
           >
-            <div class="p-2">
+            <div class="p-2 flex flex-col space-y-4">
+              <button @click.prevent="moveUp(index)" v-if="index > 0">
+                <i class="fal fa-arrow-up fa-fw"></i>
+              </button>
+              <button @click.prevent="moveDown(index)" v-if="index < items.length">
+                <i class="fal fa-arrow-down fa-fw"></i>
+              </button>
               <button @click.prevent="removeItem(index)">
                 <i class="fal fa-trash fa-fw"></i>
               </button>
             </div>
-            <div class="border-l p-4 w-full">
+            <div class="border-l p-4 w-full flex-1">
               <slot :newItem="item" :index="index"></slot>
             </div>
           </div>
@@ -128,8 +134,28 @@ export default {
       let item = { ...this.placeholder }
       this.items.push(item)
     },
+    moveUp(index) {
+      if (index > 0) {
+        this.items = this.arrayMove([...this.items], index, index - 1)
+      }
+    },
+    moveDown(index) {
+      if (index < this.items.length) {
+        this.items = this.arrayMove([...this.items], index, index + 1)
+      }
+    },
     removeItem(index) {
       this.items.splice(index, 1)
+    },
+    arrayMove(arr, old_index, new_index) {
+      if (new_index >= arr.length) {
+        var k = new_index - arr.length + 1
+        while (k--) {
+          arr.push(undefined)
+        }
+      }
+      arr.splice(new_index, 0, arr.splice(old_index, 1)[0])
+      return arr // for testing
     }
   }
 }

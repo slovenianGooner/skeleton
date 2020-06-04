@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/slovenianGooner/skeleton#readme",
   "dependencies": {
-    "vue-clickaway": "^2.2.2",
-    "vue": "^2.6.11"
+    "uniqid": "^5.2.0",
+    "vue": "^2.6.11",
+    "vue-clickaway": "^2.2.2"
   }
 }

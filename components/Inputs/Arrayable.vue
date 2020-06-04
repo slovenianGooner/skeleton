@@ -1,9 +1,18 @@
 <template>
   <div>
-    <label v-if="label" class="mb-2 block text-sm font-medium leading-5 text-gray-700">{{ label }}</label>
+    <label
+      v-if="label"
+      class="mb-2 block text-sm font-medium leading-5 text-gray-700"
+      >{{ label }}</label
+    >
 
     <div class="flex flex-wrap -mx-2">
-      <div class="px-2" :class="[blockWidth]" v-for="(item, index) in items" :key="index">
+      <div
+        class="px-2"
+        :class="[blockWidth]"
+        v-for="(item, index) in items"
+        :key="index"
+      >
         <div class="border rounded-lg mb-2">
           <div class="flex" v-if="header">
             <div class="border-r p-2">
@@ -12,18 +21,21 @@
                 <i class="fal fa-minus-square fa-fw" v-if="!item.collapsed"></i>
               </button>
             </div>
-            <div class="p-2">#{{index+1}}</div>
+            <div class="p-2">#{{ index + 1 }}</div>
           </div>
           <div
             v-if="!item.collapsed"
             class="flex"
-            :class="{ 'border-t': header, 'items-center': !header}"
+            :class="{ 'border-t': header, 'items-center': !header }"
           >
             <div class="p-2 flex flex-col space-y-4">
               <button @click.prevent="moveUp(index)" v-if="index > 0">
                 <i class="fal fa-arrow-up fa-fw"></i>
               </button>
-              <button @click.prevent="moveDown(index)" v-if="index < items.length">
+              <button
+                @click.prevent="moveDown(index)"
+                v-if="index < items.length"
+              >
                 <i class="fal fa-arrow-down fa-fw"></i>
               </button>
               <button @click.prevent="removeItem(index)">
@@ -43,7 +55,7 @@
         class="inline-flex justify-center items-center rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
       >
         <i class="fal fa-plus fa-fw mr-1"></i>
-        {{addTitle}}
+        {{ addTitle }}
       </button>
       <div v-if="$slots.buttons">
         <slot name="buttons"></slot>
@@ -54,44 +66,46 @@
 </template>
 
 <script>
+var uniqid = require('uniqid')
+
 export default {
   props: {
     blockWidth: {
       type: String,
-      default: 'w-full'
+      default: 'w-full',
     },
     placeholder: {
       required: true,
-      type: Object
+      type: Object,
     },
     addTitle: {
       type: String,
-      default: 'Add new'
+      default: 'Add new',
     },
     label: String,
     value: {
       type: Array,
       default: () => {
         return []
-      }
+      },
     },
     startCollapsed: {
       type: Boolean,
-      default: true
+      default: true,
     },
     singleValue: {
       type: Boolean,
-      default: false
+      default: false,
     },
     header: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       collapsed: this.startCollapsed,
-      items: []
+      items: [],
     }
   },
   watch: {
@@ -101,24 +115,24 @@ export default {
         if (this.singleValue) {
           this.$emit(
             'input',
-            this.items.map(item => {
+            this.items.map((item) => {
               return item.value
             })
           )
         } else {
           this.$emit('input', this.items)
         }
-      }
-    }
+      },
+    },
   },
   created() {
     if (this.singleValue) {
-      this.items = this.value.map(item => {
+      this.items = this.value.map((item) => {
         let newItem = { value: item, collapsed: this.startCollapsed }
         return newItem
       })
     } else {
-      this.items = this.value.map(item => {
+      this.items = this.value.map((item) => {
         item.collapsed = this.startCollapsed
         return item
       })
@@ -131,7 +145,8 @@ export default {
       this.items = items
     },
     addItem() {
-      let item = { ...this.placeholder }
+      let item = { ...this.placeholder, uid: uniqid() }
+      console.log(item)
       this.items.push(item)
     },
     moveUp(index) {
@@ -156,10 +171,9 @@ export default {
       }
       arr.splice(new_index, 0, arr.splice(old_index, 1)[0])
       return arr // for testing
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

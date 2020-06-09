@@ -3,6 +3,10 @@
     <a href :title="title" :class="buttonClass" @click.prevent="clickItem">
       <i :class="iconClass"></i>
       <span>{{ title }}</span>
+      <span
+        v-if="badge"
+        class="ml-1.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+      >{{badge}}</span>
     </a>
     <div class="absolute right-0 top-0 text-gray-300 text-sm pr-2 py-2" v-if="$slots.children">
       <i class="fa fa-chevron-up" v-if="open"></i>
@@ -17,6 +21,9 @@
 <script>
 export default {
   props: {
+    badge: {
+      default: null
+    },
     title: {},
     to: {},
     icon: {},

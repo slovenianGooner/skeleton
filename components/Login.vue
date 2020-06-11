@@ -49,16 +49,17 @@
             >{{$page.errors[Object.keys($page.errors)[0]][0]}}</div>
           </slot>
 
-          <div class="mt-2 flex items-center justify-between" v-if="form.remember_me !== undefined">
+          <div class="mt-2 flex items-center justify-between" v-if="form.remember !== undefined">
             <div class="flex items-center">
               <input
-                id="remember_me"
+                id="remember"
                 type="checkbox"
                 class="form-checkbox h-4 w-4 transition duration-150 ease-in-out"
                 :class="['text-' + colorTheme + '-600']"
+                v-model="form.remember"
               />
               <label
-                for="remember_me"
+                for="remember"
                 class="ml-2 block text-sm leading-5 text-gray-900"
               >{{rememberMeTitle}}</label>
             </div>

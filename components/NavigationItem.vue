@@ -36,11 +36,15 @@ export default {
       type: String,
       default:
         'hover:text-white hover:bg-gray-700 focus:text-white focus:bg-gray-700'
+    },
+    isOpen: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      open: false
+      open: this.isOpen
     }
   },
   computed: {

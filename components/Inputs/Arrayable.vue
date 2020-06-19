@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import uniqid from 'uniqid'
+
 export default {
   props: {
     blockWidth: {
@@ -131,7 +133,6 @@ export default {
           })
 
           if (item.uid === undefined) {
-            var uniqid = require('uniqid')
             item.uid = uniqid()
           }
         }

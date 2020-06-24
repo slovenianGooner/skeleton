@@ -31,7 +31,7 @@
               </button>
             </div>
             <div class="border-l p-4 w-full flex-1">
-              <slot :newItem="item" :index="index"></slot>
+              <slot :newItem="item" :data="additionalData" :index="index"></slot>
             </div>
           </div>
         </div>
@@ -61,6 +61,12 @@ export default {
     blockWidth: {
       type: String,
       default: 'w-full'
+    },
+    additionalData: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     },
     placeholder: {
       required: true,

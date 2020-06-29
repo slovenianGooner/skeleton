@@ -40,7 +40,7 @@
             </svg>
           </button>
         </div>
-        <div class="flex-shrink-0 flex items-center h-16 px-4" :class="[headerColor]">
+        <div class="flex-shrink-0 flex items-center h-16 px-4 pr-16" :class="[headerColor]">
           <div class="text-2xl text-white font-semibold">
             <slot name="logo" />
           </div>

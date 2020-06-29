@@ -23,9 +23,11 @@
               <button @click.prevent="moveUp(index)" v-if="index > 0">
                 <i class="fal fa-arrow-up fa-fw"></i>
               </button>
+              <div v-else>&nbsp;</div>
               <button @click.prevent="moveDown(index)" v-if="index < items.length">
                 <i class="fal fa-arrow-down fa-fw"></i>
               </button>
+              <div v-else>&nbsp;</div>
               <button @click.prevent="removeItem(index)">
                 <i class="fal fa-trash fa-fw"></i>
               </button>

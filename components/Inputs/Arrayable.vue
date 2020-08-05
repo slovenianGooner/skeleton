@@ -1,9 +1,18 @@
 <template>
   <div>
-    <label v-if="label" class="mb-2 block text-sm font-medium leading-5 text-gray-700">{{ label }}</label>
+    <label
+      v-if="label"
+      class="mb-2 block text-sm font-medium leading-5 text-gray-700"
+      >{{ label }}</label
+    >
 
     <div class="flex flex-wrap -mx-2">
-      <div class="px-2" :class="[blockWidth]" v-for="(item, index) in items" :key="index">
+      <div
+        class="px-2"
+        :class="[blockWidth]"
+        v-for="(item, index) in items"
+        :key="index"
+      >
         <div class="border rounded-lg mb-2">
           <div class="flex" v-if="header">
             <div class="border-r p-2">
@@ -24,7 +33,10 @@
                 <i class="fal fa-arrow-up fa-fw"></i>
               </button>
               <div v-else>&nbsp;</div>
-              <button @click.prevent="moveDown(index)" v-if="index < items.length">
+              <button
+                @click.prevent="moveDown(index)"
+                v-if="index < items.length"
+              >
                 <i class="fal fa-arrow-down fa-fw"></i>
               </button>
               <div v-else>&nbsp;</div>
@@ -33,7 +45,11 @@
               </button>
             </div>
             <div class="border-l p-4 w-full flex-1">
-              <slot :newItem="item" :data="additionalData" :index="index"></slot>
+              <slot
+                :newItem="item"
+                :data="additionalData"
+                :index="index"
+              ></slot>
             </div>
           </div>
         </div>
@@ -62,50 +78,50 @@ export default {
   props: {
     blockWidth: {
       type: String,
-      default: 'w-full'
+      default: 'w-full',
     },
     additionalData: {
       type: Object,
       default: () => {
         return {}
-      }
+      },
     },
     placeholder: {
       required: true,
-      type: Object
+      type: Object,
     },
     addTitle: {
       type: String,
-      default: 'Add new'
+      default: 'Add new',
     },
     label: String,
     value: {
       type: Array,
       default: () => {
         return []
-      }
+      },
     },
     startCollapsed: {
       type: Boolean,
-      default: true
+      default: true,
     },
     singleValue: {
       type: Boolean,
-      default: false
+      default: false,
     },
     header: {
       type: Boolean,
-      default: true
+      default: true,
     },
     assign: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       collapsed: this.startCollapsed,
-      items: []
+      items: [],
     }
   },
   watch: {
@@ -115,24 +131,24 @@ export default {
         if (this.singleValue) {
           this.$emit(
             'input',
-            this.items.map(item => {
+            this.items.map((item) => {
               return item.value
             })
           )
         } else {
           this.$emit('input', this.items)
         }
-      }
-    }
+      },
+    },
   },
   created() {
     if (this.singleValue) {
-      this.items = this.value.map(item => {
+      this.items = this.value.map((item) => {
         let newItem = { value: item, collapsed: this.startCollapsed }
         return newItem
       })
     } else {
-      this.items = this.value.map(item => {
+      this.items = this.value.map((item) => {
         if (this.assign) {
           Object.keys(this.placeholder).forEach((key, value) => {
             if (item[key] === undefined) {
@@ -181,8 +197,8 @@ export default {
       }
       arr.splice(new_index, 0, arr.splice(old_index, 1)[0])
       return arr // for testing
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -24,56 +24,56 @@ export default {
   props: {
     preventDefaultSubmit: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placeholder: {
       type: String,
-      default: 'Search here...'
+      default: 'Search here...',
     },
     searchTitle: {
       type: String,
-      default: 'Search'
+      default: 'Search',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     urlQuery: {
       type: Object,
       default: () => {
         return {}
-      }
+      },
     },
     searchContainerClass: {
       type: String,
-      default: 'rounded-md shadow-sm'
+      default: 'rounded-md shadow-sm',
     },
     searchClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      search: this.value
+      search: this.value,
     }
   },
   created() {},
   methods: {
     submit() {
-      this.$emit('submit')
+      this.$emit('submit', this.search)
 
       if (!this.preventDefaultSubmit) {
         this.$inertia.replace(
           route(route().current(), {
             ...this.urlQuery,
             search: this.search,
-            page: 1
+            page: 1,
           })
         )
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

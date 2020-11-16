@@ -27,7 +27,8 @@
         class="fixed z-30 bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
       >
         <div
-          class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6"
+          class="bg-white rounded-lg px-4 pt-5 pb-4 shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6"
+          :class="{ 'overflow-hidden': !overflows }"
         >
           <div>
             <slot name="body" />
@@ -50,7 +51,11 @@ export default {
     modalOpen: {
       type: Boolean,
       default: false
-    }
+    },
+    overflows: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {

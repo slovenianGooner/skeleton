@@ -1,6 +1,7 @@
 <template>
   <div class="overflow-hidden relative">
     <a href :title="title" :class="buttonClass" @click.prevent="clickItem">
+      <slot name="icon"></slot>
       <i :class="iconClass"></i>
       <span>{{ title }}</span>
       <span

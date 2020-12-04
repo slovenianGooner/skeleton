@@ -12,8 +12,21 @@
       <button
         class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
       >
-        <i class="fa fa-search"></i>
-        <span class="ml-2">{{searchTitle}}</span>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+        <span class="ml-2">{{ searchTitle }}</span>
       </button>
     </div>
   </form>
@@ -28,40 +41,40 @@ export default {
     },
     placeholder: {
       type: String,
-      default: 'Search here...',
+      default: "Search here...",
     },
     searchTitle: {
       type: String,
-      default: 'Search',
+      default: "Search",
     },
     value: {
       type: String,
-      default: '',
+      default: "",
     },
     urlQuery: {
       type: Object,
       default: () => {
-        return {}
+        return {};
       },
     },
     searchContainerClass: {
       type: String,
-      default: 'rounded-md shadow-sm',
+      default: "rounded-md shadow-sm",
     },
     searchClass: {
       type: String,
-      default: '',
+      default: "",
     },
   },
   data() {
     return {
       search: this.value,
-    }
+    };
   },
   created() {},
   methods: {
     submit() {
-      this.$emit('submit', this.search)
+      this.$emit("submit", this.search);
 
       if (!this.preventDefaultSubmit) {
         this.$inertia.replace(
@@ -70,11 +83,11 @@ export default {
             search: this.search,
             page: 1,
           })
-        )
+        );
       }
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

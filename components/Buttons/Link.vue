@@ -7,7 +7,10 @@
         :class="[colors]"
         :href="href"
       >
-        <i :class="[icon]" class="fa-fw"></i>
+        <div v-if="$slots.icon" class="mr-2">
+          <slot name="icon"></slot>
+        </div>
+        <i :class="[icon]" class="fa-fw" v-if="icon !== undefined"></i>
         <span class="ml-2" v-if="title">{{ title }}</span>
       </inertia-link>
     </slot>
@@ -20,9 +23,9 @@ export default {
     title: {},
     href: {},
     colors: {},
-    icon: {}
-  }
-}
+    icon: {},
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -7,7 +7,7 @@
         :class="[colors]"
         :href="href"
       >
-        <div v-if="$slots.icon" class="mr-2">
+        <div v-if="$slots.icon">
           <slot name="icon"></slot>
         </div>
         <i :class="[icon]" class="fa-fw" v-if="icon !== undefined"></i>

@@ -26,10 +26,7 @@
         v-if="open"
         class="fixed z-30 bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
       >
-        <div
-          class="bg-white rounded-lg px-4 pt-5 pb-4 shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6"
-          :class="{ 'overflow-hidden': !overflows }"
-        >
+        <div class="" :class="{ 'overflow-hidden': !overflows, modalClass }">
           <div>
             <slot name="body" />
           </div>
@@ -50,7 +47,12 @@ export default {
   props: {
     modalOpen: {
       type: Boolean,
-      default: false
+      default: false,
+    },
+    modalClass: {
+      type: String,
+      default:
+        "bg-white rounded-lg px-4 pt-5 pb-4 shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6",
     },
     overflows: {
       type: Boolean,
@@ -59,15 +61,15 @@ export default {
   },
   data() {
     return {
-      open: this.modalOpen
-    }
+      open: this.modalOpen,
+    };
   },
   watch: {
     modalOpen() {
-      this.open = this.modalOpen
-    }
-  }
-}
+      this.open = this.modalOpen;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

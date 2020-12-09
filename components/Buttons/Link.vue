@@ -7,11 +7,11 @@
         :class="[colors]"
         :href="href"
       >
-        <div v-if="$slots.icon">
+        <div v-if="$slots.icon" class="mr-2">
           <slot name="icon"></slot>
         </div>
-        <i :class="[icon]" class="fa-fw" v-if="icon !== undefined"></i>
-        <span class="ml-2" v-if="title">{{ title }}</span>
+        <i :class="[icon]" class="fa-fw mr-2" v-if="icon !== undefined"></i>
+        <span v-if="title">{{ title }}</span>
       </inertia-link>
     </slot>
   </span>

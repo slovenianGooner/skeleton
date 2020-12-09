@@ -1,5 +1,8 @@
 <template>
-  <div class="h-screen flex overflow-hidden bg-gray-100" @keydown.esc="sidebarOpen = false">
+  <div
+    class="h-screen flex overflow-hidden bg-gray-100"
+    @keydown.esc="sidebarOpen = false"
+  >
     <!-- Off-canvas menu for mobile -->
     <div :class="[breakpoint + ':hidden']" v-if="$slots.navigation">
       <div
@@ -7,15 +10,18 @@
         class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300"
         :class="{
           'opacity-75 pointer-events-auto': sidebarOpen,
-          'opacity-0 pointer-events-none': !sidebarOpen
+          'opacity-0 pointer-events-none': !sidebarOpen,
         }"
       ></div>
       <div
         class="fixed inset-y-0 left-0 flex flex-col z-40 max-w-xs w-full transform ease-in-out duration-300"
-        :class="[{
-          'translate-x-0': sidebarOpen,
-          '-translate-x-full': !sidebarOpen,
-        }, sidebarColor]"
+        :class="[
+          {
+            'translate-x-0': sidebarOpen,
+            '-translate-x-full': !sidebarOpen,
+          },
+          sidebarColor,
+        ]"
       >
         <div class="absolute top-0 right-0">
           <button
@@ -40,7 +46,10 @@
             </svg>
           </button>
         </div>
-        <div class="flex-shrink-0 flex items-center h-16 px-4 pr-16" :class="[headerColor]">
+        <div
+          class="flex-shrink-0 flex items-center h-16 px-4 pr-16"
+          :class="[headerColor]"
+        >
           <div class="text-2xl text-white font-semibold">
             <slot name="logo" />
           </div>
@@ -54,9 +63,15 @@
     </div>
 
     <!-- Static sidebar for desktop -->
-    <div class="hidden" :class="[breakpoint + ':flex ' + breakpoint + ':flex-shrink-0']">
+    <div
+      class="hidden"
+      :class="[breakpoint + ':flex ' + breakpoint + ':flex-shrink-0']"
+    >
       <div class="flex flex-col w-64" v-if="$slots.navigation">
-        <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
+        <div
+          class="flex items-center h-16 flex-shrink-0 px-4"
+          :class="[headerColor]"
+        >
           <div class="text-2xl font-semibold" :class="[textColor]">
             <slot name="logo" />
           </div>
@@ -70,9 +85,15 @@
       </div>
     </div>
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
-      <div class="relative z-10 flex-shrink-0 flex h-16 shadow" :class="[headerColor]">
+      <div
+        class="relative z-10 flex-shrink-0 flex h-16 shadow"
+        :class="[headerColor]"
+      >
         <div class="flex flex-col w-64" v-if="!$slots.navigation">
-          <div class="flex items-center h-16 flex-shrink-0 px-4" :class="[headerColor]">
+          <div
+            class="flex items-center h-16 flex-shrink-0 px-4"
+            :class="[headerColor]"
+          >
             <div class="text-2xl font-semibold" :class="[textColor]">
               <slot name="logo" />
             </div>
@@ -84,7 +105,12 @@
           :class="[textColor, breakpoint + ':hidden']"
           class="px-4 focus:outline-none focus:bg-gray-100 focus:text-gray-600"
         >
-          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <svg
+            class="h-6 w-6 mr-1.5"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -100,13 +126,29 @@
           <div class="flex items-center" v-if="showUserDropdown">
             <div v-on-clickaway="closeUserDropdown" class="ml-3 relative">
               <div>
-                <slot name="userDropdownButton" :toggleUserDropdown="toggleUserDropdown">
+                <slot
+                  name="userDropdownButton"
+                  :toggleUserDropdown="toggleUserDropdown"
+                >
                   <button
                     @click="toggleUserDropdown"
                     class="max-w-xs flex items-center focus:outline-none"
                     :class="[textColor]"
                   >
-                    <i class="fa fa-user mr-2"></i>
+                    <svg
+                      class="w-6 h-6 mr-1.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      ></path>
+                    </svg>
                     <slot name="userDropdownTitle">User's name</slot>
                   </button>
                 </slot>
@@ -116,14 +158,20 @@
                 class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
               >
                 <div class="py-1 rounded-md bg-white shadow-xs">
-                  <slot name="userDropdownContent" :toggleUserDropdown="toggleUserDropdown"></slot>
+                  <slot
+                    name="userDropdownContent"
+                    :toggleUserDropdown="toggleUserDropdown"
+                  ></slot>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0">
+      <main
+        class="flex-1 relative z-0 overflow-y-auto focus:outline-none"
+        tabindex="0"
+      >
         <slot />
       </main>
     </div>
@@ -135,40 +183,40 @@ export default {
   props: {
     showUserDropdown: {
       type: Boolean,
-      default: true
+      default: true,
     },
     headerColor: {
       type: String,
-      default: 'bg-gray-900'
+      default: "bg-gray-900",
     },
     textColor: {
       type: String,
-      default: 'text-white'
+      default: "text-white",
     },
     sidebarColor: {
       type: String,
-      default: 'bg-gray-800'
+      default: "bg-gray-800",
     },
     breakpoint: {
       type: String,
-      default: 'md'
-    }
+      default: "md",
+    },
   },
   data() {
     return {
       sidebarOpen: false,
-      userDropdownOpen: false
-    }
+      userDropdownOpen: false,
+    };
   },
   methods: {
     toggleUserDropdown() {
-      this.userDropdownOpen = !this.userDropdownOpen
+      this.userDropdownOpen = !this.userDropdownOpen;
     },
     closeUserDropdown() {
-      this.userDropdownOpen = false
-    }
-  }
-}
+      this.userDropdownOpen = false;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

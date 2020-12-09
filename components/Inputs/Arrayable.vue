@@ -21,9 +21,40 @@
         <div class="mb-2" :class="{ 'border rounded-lg': !simple }">
           <div class="flex" v-if="header">
             <div class="border-r p-2">
-              <button @click.prevent="toggleCollapse(index)">
-                <i class="fal fa-plus-square fa-fw" v-if="item.collapsed"></i>
-                <i class="fal fa-minus-square fa-fw" v-if="!item.collapsed"></i>
+              <button
+                @click.prevent="toggleCollapse(index)"
+                class="flex items-center"
+              >
+                <svg
+                  class="w-6 h-6"
+                  v-if="item.collapsed"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <svg
+                  v-if="!item.collapsed"
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
               </button>
             </div>
             <div class="p-2">#{{ index + 1 }}</div>
@@ -38,18 +69,57 @@
           >
             <div class="p-2 flex flex-col space-y-4" v-if="!simple">
               <button @click.prevent="moveUp(index)" v-if="index > 0">
-                <i class="fal fa-arrow-up fa-fw"></i>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 10l7-7m0 0l7 7m-7-7v18"
+                  ></path>
+                </svg>
               </button>
               <div v-else>&nbsp;</div>
               <button
                 @click.prevent="moveDown(index)"
                 v-if="index < items.length"
               >
-                <i class="fal fa-arrow-down fa-fw"></i>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  ></path>
+                </svg>
               </button>
               <div v-else>&nbsp;</div>
               <button @click.prevent="removeItem(index)">
-                <i class="fal fa-trash fa-fw"></i>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
               </button>
             </div>
             <div
@@ -65,7 +135,20 @@
                 :index="index"
               ></slot>
               <button @click.prevent="removeItem(index)" v-if="simple">
-                <i class="fal fa-trash fa-fw"></i>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
               </button>
             </div>
           </div>
@@ -77,7 +160,20 @@
         @click.prevent="addItem"
         class="inline-flex justify-center items-center rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
       >
-        <i class="fal fa-plus fa-fw mr-1"></i>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+          ></path>
+        </svg>
         {{ addTitle }}
       </button>
       <div v-if="$slots.buttons">

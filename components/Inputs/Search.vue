@@ -4,7 +4,7 @@
       <slot name="prefix"></slot>
       <div class="relative flex-grow focus-within:z-10" :class="[searchClass]">
         <input
-          class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+          class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 text-sm sm:leading-5"
           :placeholder="placeholder"
           v-model="search"
         />

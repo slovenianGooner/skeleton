@@ -1,24 +1,60 @@
 <template>
   <div class="overflow-hidden relative">
-    <a href :title="title" :class="buttonClass" @click.prevent="clickItem">
-      <div v-if="$slots.icon" class="mr-2">
-        <slot name="icon"></slot>
-      </div>
-      <i :class="iconClass" v-if="icon !== undefined"></i>
-      <span>{{ title }}</span>
-      <span
-        v-if="badge"
-        class="ml-1.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-        >{{ badge }}</span
-      >
-    </a>
-    <div
-      class="absolute right-0 top-0 text-gray-300 text-sm pr-2 pt-2.5"
-      v-if="$slots.children"
+    <a
+      href
+      :title="title"
+      :class="buttonClass"
+      @click.prevent="clickItem"
+      class="flex justify-between items-center"
     >
-      <i class="fa fa-chevron-up" v-if="open"></i>
-      <i class="fa fa-chevron-down" v-else></i>
-    </div>
+      <div class="flex items-center">
+        <div v-if="$slots.icon" class="mr-2">
+          <slot name="icon"></slot>
+        </div>
+        <i :class="iconClass" v-if="icon !== undefined"></i>
+        <span>{{ title }}</span>
+        <span
+          v-if="badge"
+          class="ml-1.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+          >{{ badge }}</span
+        >
+      </div>
+      <div
+        class="flex items-center h-full text-gray-300 text-sm"
+        v-if="$slots.children"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          v-if="open"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 15l7-7 7 7"
+          ></path>
+        </svg>
+        <svg
+          v-else
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </div>
+    </a>
     <div v-if="$slots.children && open" class="bg-gray-900 pl-4">
       <slot name="children" />
     </div>

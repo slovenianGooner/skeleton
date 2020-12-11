@@ -4,7 +4,7 @@
     @keydown.esc="sidebarOpen = false"
   >
     <!-- Off-canvas menu for mobile -->
-    <div :class="[breakpoint + ':hidden']" v-if="$slots.navigation">
+    <div :class="[mobileNavigationBreakpoint]" v-if="$slots.navigation">
       <div
         @click="sidebarOpen = false"
         class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300"
@@ -63,10 +63,7 @@
     </div>
 
     <!-- Static sidebar for desktop -->
-    <div
-      class="hidden"
-      :class="[breakpoint + ':flex ' + breakpoint + ':flex-shrink-0']"
-    >
+    <div class="hidden" :class="[desktopNavigationBreakpoint]">
       <div class="flex flex-col w-64" v-if="$slots.navigation">
         <div
           class="flex items-center h-16 flex-shrink-0 px-4"
@@ -102,7 +99,7 @@
         <button
           v-if="$slots.navigation"
           @click.stop="sidebarOpen = true"
-          :class="[textColor, breakpoint + ':hidden']"
+          :class="[textColor, mobileNavigationBreakpoint]"
           class="px-4 focus:outline-none focus:bg-gray-100 focus:text-gray-600"
         >
           <svg
@@ -120,7 +117,10 @@
           </svg>
         </button>
         <div class="flex-1 px-4 flex justify-end">
-          <div class="flex items-center w-full" v-if="$slots.headerButtons">
+          <div
+            class="flex items-center w-full justify-end"
+            v-if="$slots.headerButtons"
+          >
             <slot name="headerButtons"></slot>
           </div>
           <div class="flex items-center" v-if="showUserDropdown">
@@ -197,9 +197,13 @@ export default {
       type: String,
       default: "bg-gray-800",
     },
-    breakpoint: {
+    mobileNavigationBreakpoint: {
       type: String,
-      default: "md",
+      default: "md:hidden",
+    },
+    desktopNavigationBreakpoint: {
+      type: String,
+      default: "md:flex md:flex-shrink-0",
     },
   },
   data() {

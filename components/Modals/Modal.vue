@@ -26,7 +26,10 @@
         v-if="open"
         class="fixed z-30 bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
       >
-        <div class="" :class="{ 'overflow-hidden': !overflows, modalClass }">
+        <div
+          class=""
+          :class="[!overflows ? 'overflow-hidden' : '', ...modalClass]"
+        >
           <div>
             <slot name="body" />
           </div>

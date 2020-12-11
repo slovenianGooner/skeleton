@@ -120,7 +120,7 @@
           </svg>
         </button>
         <div class="flex-1 px-4 flex justify-end">
-          <div class="flex items-center" v-if="$slots.headerButtons">
+          <div class="flex items-center w-full" v-if="$slots.headerButtons">
             <slot name="headerButtons"></slot>
           </div>
           <div class="flex items-center" v-if="showUserDropdown">

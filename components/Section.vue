@@ -11,7 +11,7 @@
         <span class="ml-6 h-7 flex items-center">
           <span v-if="collapsed">
             <svg
-              class="w-6 h-6"
+              class="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -27,7 +27,7 @@
           </span>
           <span v-else>
             <svg
-              class="w-6 h-6"
+              class="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

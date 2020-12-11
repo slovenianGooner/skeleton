@@ -7,10 +7,10 @@
         :class="[colors]"
         :href="href"
       >
-        <div v-if="$slots.icon" class="mr-2">
+        <div v-if="$slots.icon" :class="{ 'mr-1.5': title }">
           <slot name="icon"></slot>
         </div>
-        <i :class="[icon]" class="fa-fw mr-2" v-if="icon !== undefined"></i>
+        <i :class="[icon]" class="fa-fw mr-1.5" v-if="icon !== undefined"></i>
         <span v-if="title">{{ title }}</span>
       </button>
     </slot>

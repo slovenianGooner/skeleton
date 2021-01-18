@@ -7,6 +7,7 @@
           class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 text-sm sm:leading-5"
           :placeholder="placeholder"
           v-model="search"
+          type="text"
         />
       </div>
       <button

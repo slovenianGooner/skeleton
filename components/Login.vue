@@ -46,7 +46,7 @@
             <div
               v-if="Object.keys(errors).length"
               class="mt-2 text-red-600 text-sm"
-            >{{$page.errors[Object.keys(errors)[0]][0]}}</div>
+            >{{errors[Object.keys(errors)[0]][0]}}</div>
           </slot>
 
           <div class="mt-2 flex items-center justify-between" v-if="form.remember !== undefined">

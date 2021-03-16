@@ -20,7 +20,7 @@
             <slot name="usernameField">
               <text-input
                 v-model="form.username"
-                :errors="$page.errors.username"
+                :errors="errors.username"
                 placeholder="Username"
                 input-class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                 type="email"
@@ -44,9 +44,9 @@
 
           <slot name="errors">
             <div
-              v-if="Object.keys($page.errors).length"
+              v-if="Object.keys(errors).length"
               class="mt-2 text-red-600 text-sm"
-            >{{$page.errors[Object.keys($page.errors)[0]][0]}}</div>
+            >{{$page.errors[Object.keys(errors)[0]][0]}}</div>
           </slot>
 
           <div class="mt-2 flex items-center justify-between" v-if="form.remember !== undefined">
@@ -105,6 +105,12 @@
 export default {
   props: {
     formProps: {},
+    errors: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    },
     passwordPlaceholder: {
       type: String,
       default: 'Password'
@@ -140,7 +146,7 @@ export default {
   },
   created() {
     this.form = this.formProps
-  }
+  },
 }
 </script>
 

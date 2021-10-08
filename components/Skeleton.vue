@@ -157,7 +157,7 @@
                 v-if="userDropdownOpen"
                 class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
               >
-                <div class="py-1 rounded-md bg-white shadow-xs">
+                <div class="py-1 rounded-md bg-white dark:bg-gray-700 shadow-xs">
                   <slot
                     name="userDropdownContent"
                     :toggleUserDropdown="toggleUserDropdown"

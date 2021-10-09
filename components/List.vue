@@ -1,6 +1,15 @@
 <template>
   <div>
-    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <div
+      class="
+        bg-white
+        dark:bg-gray-700
+        dark:border dark:border-white
+        shadow
+        overflow-hidden
+        sm:rounded-md
+      "
+    >
       <div v-if="$slots.header">
         <slot name="header" />
       </div>
@@ -13,8 +22,22 @@
       </div>
       <div
         v-else-if="showMissingData"
-        class="bg-white shadow overflow-hidden sm:rounded-md p-8 flex items-center justify-center text-gray-600"
-      >{{missingData}}</div>
+        class="
+          bg-white
+          dark:bg-gray-700
+          shadow
+          overflow-hidden
+          sm:rounded-md
+          p-8
+          flex
+          items-center
+          justify-center
+          text-gray-600
+          dark:text-white
+        "
+      >
+        {{ missingData }}
+      </div>
       <div v-if="$slots.footer">
         <slot name="footer" />
       </div>
@@ -27,24 +50,24 @@ export default {
   props: {
     header: {
       type: Boolean,
-      default: false
+      default: false,
     },
     data: {
       type: Array,
       default: () => {
-        return []
-      }
+        return [];
+      },
     },
     showMissingData: {
       type: Boolean,
-      default: true
+      default: true,
     },
     missingData: {
       type: String,
-      default: 'No items yet.'
-    }
-  }
-}
+      default: "No items yet.",
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

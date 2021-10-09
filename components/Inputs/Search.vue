@@ -4,14 +4,53 @@
       <slot name="prefix"></slot>
       <div class="relative flex-grow focus-within:z-10" :class="[searchClass]">
         <input
-          class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 text-sm sm:leading-5 border-gray-300"
+          class="
+            form-input
+            block
+            w-full
+            rounded-none rounded-l-md
+            transition
+            placeholder-gray-100
+            ease-in-out
+            duration-150
+            text-sm
+            sm:leading-5
+            border-gray-300
+            dark:bg-gray-600
+          "
           :placeholder="placeholder"
           v-model="search"
           type="text"
         />
       </div>
       <button
-        class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+        class="
+          -ml-px
+          relative
+          inline-flex
+          items-center
+          px-4
+          py-2
+          border border-gray-300
+          text-sm
+          leading-5
+          font-medium
+          rounded-r-md
+          text-gray-700
+          bg-gray-50
+          dark:bg-gray-600
+          dark:text-gray-100
+          hover:text-gray-500
+          hover:bg-white
+          focus:outline-none
+          focus:shadow-outline-blue
+          focus:border-blue-300
+          active:bg-gray-100
+          active:text-gray-700
+          transition
+          ease-in-out
+          duration-150
+        "
       >
         <svg
           class="w-4 h-4"

@@ -1,20 +1,41 @@
 <template>
   <div
-    class="h-screen flex overflow-hidden bg-gray-100"
+    class="h-screen flex overflow-hidden bg-gray-100 dark:bg-gray-700"
     @keydown.esc="sidebarOpen = false"
   >
     <!-- Off-canvas menu for mobile -->
     <div :class="[mobileNavigationBreakpoint]" v-if="$slots.navigation">
       <div
         @click="sidebarOpen = false"
-        class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300"
+        class="
+          fixed
+          inset-0
+          z-30
+          bg-gray-600
+          opacity-0
+          pointer-events-none
+          transition-opacity
+          ease-linear
+          duration-300
+        "
         :class="{
           'opacity-75 pointer-events-auto': sidebarOpen,
           'opacity-0 pointer-events-none': !sidebarOpen,
         }"
       ></div>
       <div
-        class="fixed inset-y-0 left-0 flex flex-col z-40 max-w-xs w-full transform ease-in-out duration-300"
+        class="
+          fixed
+          inset-y-0
+          left-0
+          flex flex-col
+          z-40
+          max-w-xs
+          w-full
+          transform
+          ease-in-out
+          duration-300
+        "
         :class="[
           {
             'translate-x-0': sidebarOpen,
@@ -27,7 +48,15 @@
           <button
             x-show="sidebarOpen"
             @click="sidebarOpen = false"
-            class="flex items-center justify-center h-16 w-16 rounded-full focus:outline-none"
+            class="
+              flex
+              items-center
+              justify-center
+              h-16
+              w-16
+              rounded-full
+              focus:outline-none
+            "
             :class="[textColor]"
           >
             <svg
@@ -155,9 +184,19 @@
               </div>
               <div
                 v-if="userDropdownOpen"
-                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+                class="
+                  origin-top-right
+                  absolute
+                  right-0
+                  mt-2
+                  w-48
+                  rounded-md
+                  shadow-lg
+                "
               >
-                <div class="py-1 rounded-md bg-white dark:bg-gray-700 shadow-xs">
+                <div
+                  class="py-1 rounded-md bg-white dark:bg-gray-700 shadow-xs"
+                >
                   <slot
                     name="userDropdownContent"
                     :toggleUserDropdown="toggleUserDropdown"

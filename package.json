@@ -1,24 +1,25 @@
 {
-  "name": "adria-skeleton",
-  "version": "0.5",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/slovenianGooner/skeleton.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/slovenianGooner/skeleton/issues"
-  },
-  "homepage": "https://github.com/slovenianGooner/skeleton#readme",
-  "dependencies": {
-    "uniqid": "^5.2.0",
-    "vue": "^2.6.11",
-    "vue-clickaway": "^2.2.2"
-  }
+    "name": "adria-skeleton",
+    "version": "1.0.2",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/slovenianGooner/skeleton.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/slovenianGooner/skeleton/issues"
+    },
+    "homepage": "https://github.com/slovenianGooner/skeleton#readme",
+    "dependencies": {
+        "uniqid": "^5.2.0",
+        "vue": "^2.6.11",
+        "vue-clickaway": "^2.2.2"
+    },
+    "devDependencies": {},
+    "description": ""
 }

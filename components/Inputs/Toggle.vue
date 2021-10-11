@@ -46,7 +46,7 @@ export default {
     value: {},
     activeColor: {
       type: String,
-      default: "bg-gray-800",
+      default: "bg-gray-800 dark:bg-gray-300",
     },
   },
   data() {
@@ -65,7 +65,7 @@ export default {
         return this.activeColor;
       }
 
-      return "bg-gray-200";
+      return "bg-gray-200 dark:bg-gray-500";
     },
     toggle() {
       this.toggleValue = !this.toggleValue;

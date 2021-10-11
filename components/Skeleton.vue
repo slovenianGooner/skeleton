@@ -145,7 +145,7 @@
             />
           </svg>
         </button>
-        <div class="flex-1 px-4 flex justify-end">
+        <div class="flex-1 px-4 flex justify-end space-x-3">
           <div
             class="flex items-center w-full justify-end"
             v-if="$slots.headerButtons"
@@ -153,7 +153,7 @@
             <slot name="headerButtons"></slot>
           </div>
           <div class="flex items-center" v-if="showUserDropdown">
-            <div v-on-clickaway="closeUserDropdown" class="ml-3 relative">
+            <div v-on-clickaway="closeUserDropdown" class="relative">
               <div>
                 <slot
                   name="userDropdownButton"

@@ -31,7 +31,7 @@
             <div class="border-r p-2">
               <button
                 @click.prevent="toggleCollapse(index)"
-                class="flex items-center"
+                class="flex items-center dark:text-white"
               >
                 <svg
                   class="w-4 h-4"
@@ -65,7 +65,7 @@
                 </svg>
               </button>
             </div>
-            <div class="p-2">#{{ index + 1 }}</div>
+            <div class="p-2 dark:text-white">#{{ index + 1 }}</div>
           </div>
           <div
             v-if="!item.collapsed"
@@ -76,7 +76,11 @@
             }"
           >
             <div class="p-2 flex flex-col space-y-4" v-if="!simple">
-              <button @click.prevent="moveUp(index)" v-if="index > 0">
+              <button
+                @click.prevent="moveUp(index)"
+                v-if="index > 0"
+                class="dark:text-white"
+              >
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -94,6 +98,7 @@
               </button>
               <div v-else>&nbsp;</div>
               <button
+                class="dark:text-white"
                 @click.prevent="moveDown(index)"
                 v-if="index < items.length"
               >

@@ -24,7 +24,19 @@
     >
       <div
         v-if="open"
-        class="fixed z-30 bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
+        class="
+          fixed
+          z-30
+          bottom-0
+          inset-x-0
+          px-4
+          pb-6
+          sm:inset-0
+          sm:p-0
+          sm:flex
+          sm:items-center
+          sm:justify-center
+        "
       >
         <div
           class=""
@@ -34,7 +46,13 @@
             <slot name="body" />
           </div>
           <div
-            class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense"
+            class="
+              mt-5
+              sm:mt-6
+              sm:grid sm:grid-cols-2
+              sm:gap-3
+              sm:grid-flow-row-dense
+            "
             v-if="$slots.footer"
           >
             <slot name="footer" />
@@ -55,7 +73,7 @@ export default {
     modalClass: {
       type: String,
       default:
-        "bg-white rounded-lg px-4 pt-5 pb-4 shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6",
+        "bg-white dark:bg-gray-600 rounded-lg px-4 pt-5 pb-4 shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6",
     },
     overflows: {
       type: Boolean,

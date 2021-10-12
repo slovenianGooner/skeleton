@@ -1,7 +1,9 @@
 <template>
   <modal ref="modal" @close="close" :modal-open="open">
     <template slot="body">
-      <h1 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+      <h1
+        class="text-lg leading-6 font-medium text-gray-900 mb-4 dark:text-white"
+      >
         {{ title }}
       </h1>
       <div class="alert alert-danger mb-4 w-full" role="alert" v-if="message">
@@ -19,7 +21,31 @@
             @click="submit"
             :loading="loading"
             type="button"
-            class="inline-flex justify-center items-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+            class="
+              inline-flex
+              justify-center
+              items-center
+              w-full
+              rounded-md
+              border border-transparent
+              px-4
+              py-2
+              bg-red-600
+              text-base
+              leading-6
+              font-medium
+              text-white
+              shadow-sm
+              hover:bg-red-500
+              focus:outline-none
+              focus:border-red-700
+              focus:shadow-outline-red
+              transition
+              ease-in-out
+              duration-150
+              sm:text-sm
+              sm:leading-5
+            "
           >
             <svg
               class="w-6 h-6 mr-1.5"
@@ -45,7 +71,32 @@
         <button
           @click.prevent="close"
           type="button"
-          class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+          class="
+            inline-flex
+            justify-center
+            w-full
+            rounded-md
+            border border-gray-300
+            px-4
+            py-2
+            bg-white
+            text-base
+            leading-6
+            font-medium
+            text-gray-700
+            shadow-sm
+            hover:text-gray-500
+            dark:bg-gray-600
+            dark:text-white
+            focus:outline-none
+            focus:border-blue-300
+            focus:shadow-outline
+            transition
+            ease-in-out
+            duration-150
+            sm:text-sm
+            sm:leading-5
+          "
         >
           {{ cancelText }}
         </button>

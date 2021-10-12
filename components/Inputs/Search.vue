@@ -17,6 +17,7 @@
             sm:leading-5
             border-gray-300
             dark:bg-gray-600
+            dark:text-white
           "
           :placeholder="placeholder"
           v-model="search"

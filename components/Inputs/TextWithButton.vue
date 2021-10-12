@@ -2,8 +2,8 @@
   <div>
     <label
       v-if="label"
-      class="block text-sm font-medium leading-5 text-gray-700"
-      :class="{ 'text-red-500': errors.length }"
+      class="block text-sm font-medium leading-5 text-gray-700 dark:text-white"
+      :class="{ 'text-red-500 dark:text-red-300': errors.length }"
       :for="id"
     >{{ label }}</label>
     <div
@@ -35,13 +35,13 @@
       </div>
       <button
         @click.prevent="$emit('clicked')"
-        class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+        class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white dark:text-white dark:bg-gray-600 dark:hover:gray-700 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
       >
         <slot name="button"></slot>
       </button>
     </div>
 
-    <p class="mt-2 text-sm text-red-600" v-if="errors.length">{{errors[0]}}</p>
+    <p class="mt-2 text-sm text-red-600 dark:text-red-300" v-if="errors.length">{{errors[0]}}</p>
   </div>
 </template>
 
@@ -85,7 +85,7 @@ export default {
     },
     computedInputClass() {
       let inputClass =
-        'appearance-none block w-full px-3 py-2 border border-gray-300 rounded-none rounded-l-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5'
+        'appearance-none block w-full px-3 py-2 border border-gray-300 dark:bg-gray-600 dark:text-white rounded-none rounded-l-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5'
       if (this.inputClass !== undefined) {
         inputClass = this.inputClass
       }

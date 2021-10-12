@@ -28,7 +28,7 @@
       >
         <div class="mb-2" :class="{ 'border rounded-lg': !simple }">
           <div class="flex" v-if="header">
-            <div class="border-r p-2">
+            <div class="border-r p-2 flex items-center">
               <button
                 @click.prevent="toggleCollapse(index)"
                 class="flex items-center dark:text-white"

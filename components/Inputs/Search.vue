@@ -10,7 +10,7 @@
             w-full
             rounded-none rounded-l-md
             transition
-            placeholder-gray-100
+            dark:placeholder-gray-100
             ease-in-out
             duration-150
             text-sm

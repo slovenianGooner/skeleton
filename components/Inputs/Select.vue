@@ -20,13 +20,13 @@
         @input="$emit('input', $event.target.value)"
       >
         <option
-          class="dark:bg-gray-700"
+          class="dark:bg-gray-600"
           v-if="defaultValue && defaultValue.title"
           :value="defaultValue.value"
           v-html="defaultValue.title"
         ></option>
         <option
-          class="dark:bg-gray-700"
+          class="dark:bg-gray-600"
           :value="getValue(item, index)"
           v-for="(item, index) in options"
           :key="index"

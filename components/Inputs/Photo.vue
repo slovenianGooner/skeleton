@@ -2,7 +2,7 @@
   <div>
     <label
       v-if="label"
-      class="block text-sm font-medium leading-5 text-gray-700"
+      class="block text-sm font-medium leading-5 text-gray-700 dark:text-white"
       :class="{ 'text-red-500': errors.length }"
       :for="id"
       >{{ label }}</label
@@ -39,7 +39,7 @@
         <button
           type="button"
           @click.prevent="$refs.input.click()"
-          class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
+          class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 dark:text-white font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
         >
           {{ changeTitle }}
         </button>

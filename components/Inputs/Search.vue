@@ -64,12 +64,13 @@ export default {
       this.$emit('submit')
 
       if (!this.preventDefaultSubmit) {
-        this.$inertia.replace(
+        this.$inertia.visit(
           route(route().current(), {
             ...this.urlQuery,
             search: this.search,
             page: 1
-          })
+          }),
+          { replace: true, preserveState: true }
         )
       }
     }

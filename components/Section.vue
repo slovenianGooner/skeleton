@@ -10,10 +10,10 @@
         </span>
         <span class="ml-6 h-7 flex items-center">
           <span v-if="collapsed">
-            <i class="fal fa-chevron-down"></i>
+            <i class="fas fa-chevron-down"></i>
           </span>
           <span v-else>
-            <i class="fal fa-chevron-up"></i>
+            <i class="fas fa-chevron-up"></i>
           </span>
         </span>
       </button>

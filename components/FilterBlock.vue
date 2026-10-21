@@ -6,7 +6,7 @@
         class="block px-4 text-sm w-128 sm:w-96 text-center text-gray-500 focus:outline-none"
         @click.prevent="toggle"
       >
-        <i class="fal fa-filter"></i>
+        <i class="fas fa-filter"></i>
         {{buttonTitle}}
       </button>
       <div class="h-1 border-b w-full"></div>

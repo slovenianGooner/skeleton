@@ -8,8 +8,8 @@
           <div class="flex" v-if="header">
             <div class="border-r p-2">
               <button @click.prevent="toggleCollapse(index)">
-                <i class="fal fa-plus-square fa-fw" v-if="item.collapsed"></i>
-                <i class="fal fa-minus-square fa-fw" v-if="!item.collapsed"></i>
+                <i class="fas fa-plus-square fa-fw" v-if="item.collapsed"></i>
+                <i class="fas fa-minus-square fa-fw" v-if="!item.collapsed"></i>
               </button>
             </div>
             <div class="p-2">#{{ index + 1 }}</div>
@@ -21,15 +21,15 @@
           >
             <div class="p-2 flex flex-col space-y-4">
               <button @click.prevent="moveUp(index)" v-if="index > 0">
-                <i class="fal fa-arrow-up fa-fw"></i>
+                <i class="fas fa-arrow-up fa-fw"></i>
               </button>
               <div v-else>&nbsp;</div>
               <button @click.prevent="moveDown(index)" v-if="index < items.length">
-                <i class="fal fa-arrow-down fa-fw"></i>
+                <i class="fas fa-arrow-down fa-fw"></i>
               </button>
               <div v-else>&nbsp;</div>
               <button @click.prevent="removeItem(index)">
-                <i class="fal fa-trash fa-fw"></i>
+                <i class="fas fa-trash fa-fw"></i>
               </button>
             </div>
             <div class="border-l p-4 w-full flex-1">
@@ -44,7 +44,7 @@
         @click.prevent="addItem"
         class="inline-flex justify-center items-center rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
       >
-        <i class="fal fa-plus fa-fw mr-1"></i>
+        <i class="fas fa-plus fa-fw mr-1"></i>
         {{ addTitle }}
       </button>
       <div v-if="$slots.buttons">
